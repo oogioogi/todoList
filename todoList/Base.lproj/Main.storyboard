@@ -130,24 +130,52 @@
                                             <outlet property="photo" destination="TS7-iW-zna" id="fQb-xe-j3P"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextCell" id="B7L-ts-N90" customClass="TextCell" customModule="todoList" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlarmContents" id="3UF-jY-1ff" customClass="AlarmContents" customModule="todoList" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="178" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="B7L-ts-N90" id="oRI-MS-taw">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3UF-jY-1ff" id="h0H-Fe-3L0">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBS-Lc-Vgr">
-                                                    <rect key="frame" x="20" y="11" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AvG-9b-d24">
+                                                    <rect key="frame" x="20" y="11.5" width="374" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="AvG-9b-d24" firstAttribute="centerY" secondItem="h0H-Fe-3L0" secondAttribute="centerY" id="CFX-FS-fuv"/>
+                                                <constraint firstAttribute="trailing" secondItem="AvG-9b-d24" secondAttribute="trailing" constant="20" id="WPE-of-OWh"/>
+                                                <constraint firstItem="AvG-9b-d24" firstAttribute="leading" secondItem="h0H-Fe-3L0" secondAttribute="leading" constant="20" id="cqQ-D8-qcz"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="stringLabel" destination="JBS-Lc-Vgr" id="0vP-N7-ZA7"/>
+                                            <outlet property="alarmContentsLabel" destination="AvG-9b-d24" id="ZyI-Cj-YAL"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlarmTime" id="B7L-ts-N90" customClass="AlarmTime" customModule="todoList" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="221.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="B7L-ts-N90" id="oRI-MS-taw">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBS-Lc-Vgr">
+                                                    <rect key="frame" x="20" y="11.5" width="374" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="JBS-Lc-Vgr" secondAttribute="trailing" constant="20" id="WCZ-Kv-Lyt"/>
+                                                <constraint firstItem="JBS-Lc-Vgr" firstAttribute="leading" secondItem="oRI-MS-taw" secondAttribute="leading" constant="20" id="dOu-of-9xb"/>
+                                                <constraint firstItem="JBS-Lc-Vgr" firstAttribute="centerY" secondItem="oRI-MS-taw" secondAttribute="centerY" id="jOQ-LH-s9B"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="alarmTimeLabel" destination="JBS-Lc-Vgr" id="TGK-9g-zEr"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

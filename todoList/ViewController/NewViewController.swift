@@ -14,10 +14,14 @@ class NewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let todolist = todoList {
+        if let source = todoList {
             navigationItem.title = "Edit to do List"
+            // ??? = source.photo
+            // ??? = source.title
         }else {
-            navigationItem.title = " New to do List"
+            navigationItem.title = "New to do List"
+            // ??? = source.photo <- ""
+            // ??? = source.title <- ""
         }
         // Do any additional setup after loading the view.
     }

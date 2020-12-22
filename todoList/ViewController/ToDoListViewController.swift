@@ -18,8 +18,8 @@ class ToDoListViewController: UIViewController {
         todoTableView.dataSource = self
         todoTableView.delegate = self
         // Do any additional setup after loading the view.
-        guard let image = UIImage(named: "running-man")?.pngData() else {return}
-        demo(Title: "Main Title", Photo: image)
+        //guard let image = UIImage(named: "running-man")?.pngData() else {return}
+        //demo(Title: "Main Title", Photo: image)
     }
     
     override func viewWillAppear(_ animated: Bool) {
