@@ -269,14 +269,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NEWAlarmContents" id="TAQ-wK-VeW" customClass="NewAlarmContents" customModule="todoList" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="202" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="202" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TAQ-wK-VeW" id="CLW-qU-eQW">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLn-gi-66m">
-                                                    <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -291,17 +291,18 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="alarmContentsLabel" destination="JLn-gi-66m" id="yMG-is-Qnf"/>
+                                            <segue destination="sAi-dr-Ddq" kind="show" identifier="InsertTitleViewSegue" id="cqV-SE-HLa"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewAlarmTime" id="NO7-zy-iag" customClass="NEWAlarmTime" customModule="todoList" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="245.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="246" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NO7-zy-iag" id="yR4-TU-vVu">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yk-yp-zHr">
-                                                    <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -316,6 +317,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="alarmTimeLabel" destination="5yk-yp-zHr" id="OT6-7D-lG0"/>
+                                            <segue destination="1YA-4K-gie" kind="show" identifier="InsertTimeViewSegue" id="2Mn-tF-pac"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -338,10 +340,45 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="h83-Ii-NMS"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="iZK-bd-sFv"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="newTableView" destination="w6H-Cs-lPp" id="VTf-mU-aVG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G40-VW-uGh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2411.594202898551" y="-196.20535714285714"/>
+        </scene>
+        <!--Insert Title View Controller-->
+        <scene sceneID="FpB-Ox-GDa">
+            <objects>
+                <viewController id="sAi-dr-Ddq" customClass="InsertTitleViewController" customModule="todoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YfJ-ki-dNN" customClass="inser">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Jd3-GG-WMe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0Qq-EP-mDg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jbu-eC-gLI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3409" y="-308"/>
+        </scene>
+        <!--Insert Time View Controller-->
+        <scene sceneID="bi1-y5-tcE">
+            <objects>
+                <viewController id="1YA-4K-gie" customClass="InsertTimeViewController" customModule="todoList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tnj-5z-A8Q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="1ez-Mn-kdi"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="E4K-CS-6RR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g0e-0Y-yHx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4084" y="-308"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dhr-Zx-zqQ">

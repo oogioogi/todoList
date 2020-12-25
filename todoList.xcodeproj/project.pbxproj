@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8623C37D259393CC007426D0 /* croupier.png in Resources */ = {isa = PBXBuildFile; fileRef = 8623C37C259393CC007426D0 /* croupier.png */; };
+		8624FE9A2596231E00313BE6 /* InsertTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8624FE992596231E00313BE6 /* InsertTitleViewController.swift */; };
+		8624FE9D259626EA00313BE6 /* InsertTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8624FE9C259626EA00313BE6 /* InsertTimeViewController.swift */; };
 		8625B830258F06C400F87083 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8625B82F258F06C400F87083 /* AppDelegate.swift */; };
 		8625B832258F06C400F87083 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8625B831258F06C400F87083 /* SceneDelegate.swift */; };
 		8625B837258F06C400F87083 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8625B835258F06C400F87083 /* Main.storyboard */; };
@@ -25,6 +27,8 @@
 
 /* Begin PBXFileReference section */
 		8623C37C259393CC007426D0 /* croupier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = croupier.png; sourceTree = "<group>"; };
+		8624FE992596231E00313BE6 /* InsertTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertTitleViewController.swift; sourceTree = "<group>"; };
+		8624FE9C259626EA00313BE6 /* InsertTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertTimeViewController.swift; sourceTree = "<group>"; };
 		8625B82C258F06C400F87083 /* todoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8625B82F258F06C400F87083 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8625B831258F06C400F87083 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,16 +107,18 @@
 				86B4A31F258F10E000F746AF /* NewViewController.swift */,
 				86B4A325258F111100F746AF /* ToDoListViewController.swift */,
 				86B4A32A258F116200F746AF /* Manager */,
-				86B4A329258F113900F746AF /* NibCells */,
+				86B4A329258F113900F746AF /* InsertViews */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		86B4A329258F113900F746AF /* NibCells */ = {
+		86B4A329258F113900F746AF /* InsertViews */ = {
 			isa = PBXGroup;
 			children = (
+				8624FE992596231E00313BE6 /* InsertTitleViewController.swift */,
+				8624FE9C259626EA00313BE6 /* InsertTimeViewController.swift */,
 			);
-			path = NibCells;
+			path = InsertViews;
 			sourceTree = "<group>";
 		};
 		86B4A32A258F116200F746AF /* Manager */ = {
@@ -202,10 +208,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8624FE9D259626EA00313BE6 /* InsertTimeViewController.swift in Sources */,
 				86B4A34D258F5DE600F746AF /* CoreData+CoreDataClass.swift in Sources */,
 				8625B830258F06C400F87083 /* AppDelegate.swift in Sources */,
 				8625B832258F06C400F87083 /* SceneDelegate.swift in Sources */,
 				86B4A323258F10F900F746AF /* EditViewController.swift in Sources */,
+				8624FE9A2596231E00313BE6 /* InsertTitleViewController.swift in Sources */,
 				86B4A34E258F5DE600F746AF /* CoreData+CoreDataProperties.swift in Sources */,
 				86B4A32C258F118000F746AF /* DataManager.swift in Sources */,
 				86B4A320258F10E000F746AF /* NewViewController.swift in Sources */,

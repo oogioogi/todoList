@@ -14,6 +14,8 @@ class NewViewController: UIViewController {
     var defalutTitle: String?
     var isNew: Bool?
     
+    @IBOutlet weak var newTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,22 +34,27 @@ class NewViewController: UIViewController {
             self.isNew = true
             self.defalutPhoto = UIImage(named: "croupier.png")?.pngData()
             self.defalutTitle = "insert title"
-            // ??? = source.title <- ""
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        switch segue.identifier {
+        case "InsertTitleViewSegue":
+            guard let vc = segue.destination as? InsertTitleViewController else {return}
+            vc.insertTitle = self.todoList?.title
+            
+        case "InsertTimeViewSegue":
+            guard let vc = segue.destination as? InsertTimeViewController else {return}
+            //
+        default:
+            return
+        }
     }
-    */
 
 }
 
+// MARK: - DataSource
 extension NewViewController: UITableViewDataSource  {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -97,8 +104,25 @@ extension NewViewController: UITableViewDataSource  {
             fatalError()
         }
     }
-    
-    
+
+}
+
+// MARK: - UITableViewDelegate
+extension NewViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch DataManager.shared.sectionTitle[indexPath.section] {
+        
+        case "사진":
+            return
+        case "알림 내용":
+            return
+        case "시간":
+            return
+        default:
+            fatalError()
+        }
+    }
 }
 
 class NewPhotoCell: UITableViewCell /*SourceDelegate*/ {
