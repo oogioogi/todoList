@@ -73,7 +73,7 @@ extension ToDoListViewController: UITableViewDelegate {
 extension ToDoListViewController {
     
     func demo(Title title: String, Photo photo: Data){
-        DataManager.shared.AddNewMemo(Title: title, Photo: photo)
+        DataManager.shared.AddNewCoreData(Title: title, Photo: photo)
     }
 }
 

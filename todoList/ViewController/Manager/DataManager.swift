@@ -18,6 +18,7 @@ class DataManager {
         return persistentContainer.viewContext
     }
     
+    let sectionTitle: [String] = ["사진", "알림 내용", "시간"]
     
     // 데이터 처음 불러옮
     func fetchToDoList() {
@@ -41,7 +42,7 @@ class DataManager {
     }
     
     // 데이터 베이스에 새로운 데이터 추가 저장
-    func AddNewMemo(Title title: String, Photo photo: Data) {
+    func AddNewCoreData(Title title: String, Photo photo: Data) {
         let newData = CoreData(context: mainContenxt)
         newData.title = title
         newData.photo = photo

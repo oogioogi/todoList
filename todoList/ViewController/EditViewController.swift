@@ -10,7 +10,6 @@ import UIKit
 class EditViewController: UIViewController {
 
     var todoList: CoreData?
-    let sectionTitle: [String] = ["사진", "알림 내용", "시간"]
     
     
     override func viewDidLoad() {
@@ -28,8 +27,8 @@ class EditViewController: UIViewController {
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? NewViewController {
-            vc.todoList = todoList
+        if let vc = segue.destination.children.first as? NewViewController {
+            vc.todoList = self.todoList
         }
     }
     
@@ -38,11 +37,11 @@ class EditViewController: UIViewController {
 
 extension EditViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionTitle.count
+        return DataManager.shared.sectionTitle.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionTitle[section]
+        return DataManager.shared.sectionTitle[section]
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -50,7 +49,7 @@ extension EditViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        switch sectionTitle[indexPath.section] {
+        switch DataManager.shared.sectionTitle[indexPath.section] {
         case "사진":
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell", for: indexPath) as? PhotoCell else { return UITableViewCell() }
             cell.photo.image = UIImage(data: (todoList?.photo)!)
