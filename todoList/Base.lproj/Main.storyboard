@@ -355,14 +355,38 @@
                     <view key="view" contentMode="scaleToFill" id="YfJ-ki-dNN" customClass="inser">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="H17-Q4-uLb">
+                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Jd3-GG-WMe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="H17-Q4-uLb" firstAttribute="top" secondItem="Jd3-GG-WMe" secondAttribute="top" id="Hh4-9b-iMu"/>
+                            <constraint firstItem="Jd3-GG-WMe" firstAttribute="trailing" secondItem="H17-Q4-uLb" secondAttribute="trailing" id="QSX-Ac-2cd"/>
+                            <constraint firstItem="Jd3-GG-WMe" firstAttribute="bottom" secondItem="H17-Q4-uLb" secondAttribute="bottom" id="Zhb-UY-psl"/>
+                            <constraint firstItem="H17-Q4-uLb" firstAttribute="leading" secondItem="Jd3-GG-WMe" secondAttribute="leading" id="dYF-Ht-L6F"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0Qq-EP-mDg"/>
+                    <navigationItem key="navigationItem" id="0Qq-EP-mDg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="F8f-KF-8hp">
+                            <connections>
+                                <action selector="insertText:" destination="sAi-dr-Ddq" id="o9V-l3-cFj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="H17-Q4-uLb" id="nfJ-cz-o3E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbu-eC-gLI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3409" y="-308"/>
+            <point key="canvasLocation" x="3408.6956521739135" y="-308.03571428571428"/>
         </scene>
         <!--Insert Time View Controller-->
         <scene sceneID="bi1-y5-tcE">
@@ -374,7 +398,9 @@
                         <viewLayoutGuide key="safeArea" id="1ez-Mn-kdi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="E4K-CS-6RR"/>
+                    <navigationItem key="navigationItem" id="E4K-CS-6RR">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="hVW-IU-19e"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0e-0Y-yHx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -423,6 +449,9 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill.badge.ellipsis" catalog="system" width="128" height="92"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

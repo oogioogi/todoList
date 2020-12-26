@@ -11,15 +11,29 @@ class NewViewController: UIViewController {
 
     var todoList: CoreData?
     var defalutPhoto: Data?
+    var oldPhoto: Data?
     var defalutTitle: String?
-    var isNew: Bool?
+    var oldTitle: String?
+    var token: NSObjectProtocol!
     
     @IBOutlet weak var newTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        token = NotificationCenter.default.addObserver(forName: InsertTitleViewController.notificationName, object: nil, queue: OperationQueue.main, using: { [self] (noti) in
+            guard let inserted = noti.userInfo?["inserted"] as? String else {return}
+            print("Inserted ===== \(inserted)")
+            self.defalutTitle = inserted
+            self.newTableView.reloadData()
+        })
 
+    }
+    
+    deinit {
+        if let Token = self.token {
+            NotificationCenter.default.removeObserver(self, name: InsertTitleViewController.notificationName, object: nil)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,14 +41,28 @@ class NewViewController: UIViewController {
         
         if todoList != nil {
             navigationItem.title = "Edit to do List"
-            self.isNew = false
-
+            if self.defalutPhoto == oldPhoto {
+                self.defalutPhoto = UIImage(data: (todoList?.photo)!)?.pngData()
+                oldPhoto = self.defalutPhoto
+            }
+            
+            if self.defalutTitle == oldTitle {
+                self.defalutTitle = todoList?.title
+                oldTitle = self.defalutTitle
+            }
+                
+           
         }else {
             navigationItem.title = "New to do List"
-            self.isNew = true
-            self.defalutPhoto = UIImage(named: "croupier.png")?.pngData()
-            self.defalutTitle = "insert title"
+            if self.defalutPhoto == nil {
+                self.defalutPhoto = UIImage(named: "croupier.png")?.pngData()
+            }
+            if self.defalutTitle == nil {
+                self.defalutTitle = "insert title"
+            }
+            
         }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -42,7 +70,8 @@ class NewViewController: UIViewController {
         switch segue.identifier {
         case "InsertTitleViewSegue":
             guard let vc = segue.destination as? InsertTitleViewController else {return}
-            vc.insertTitle = self.todoList?.title
+            //vc.insertTitle = self.todoList?.title
+            vc.insertTitle = self.defalutTitle
             
         case "InsertTimeViewSegue":
             guard let vc = segue.destination as? InsertTimeViewController else {return}
@@ -76,24 +105,15 @@ extension NewViewController: UITableViewDataSource  {
         case "사진":
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewPhotoCell", for: indexPath) as? NewPhotoCell else { return UITableViewCell() }
             
-            if let isnew = isNew, isnew == true {
-                cell.targetPhoto.image = UIImage(data: self.defalutPhoto!)
-                //isNew = false
-            }else {
-                cell.targetPhoto.image = UIImage(data: (todoList?.photo)!)
-            }
-            
+            cell.targetPhoto.image = UIImage(data: self.defalutPhoto!)
+
             return cell
             
         case "알림 내용":
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "NEWAlarmContents", for: indexPath) as? NewAlarmContents else { return UITableViewCell() }
-            
-            if let isnew = isNew, isnew == true {
-                cell.alarmContentsLabel.text = self.defalutTitle
-            }else {
-                cell.alarmContentsLabel.text = todoList?.title
-            }
-            
+
+            cell.alarmContentsLabel.text = self.defalutTitle
+
             return cell
             
         case "시간":

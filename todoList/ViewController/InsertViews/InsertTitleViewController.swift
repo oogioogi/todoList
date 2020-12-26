@@ -9,16 +9,23 @@ import UIKit
 
 class InsertTitleViewController: UIViewController {
 
+    @IBOutlet weak var textField: UITextView!
     var insertTitle: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.title = "Insert Title"
+        textField.text = insertTitle
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func insertText(_ sender: Any) {
+        let inserted: [AnyHashable: Any] = ["inserted" : textField.text!]
+        NotificationCenter.default.post(name: InsertTitleViewController.notificationName, object: nil, userInfo: inserted)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -29,4 +36,8 @@ class InsertTitleViewController: UIViewController {
     }
     */
 
+}
+
+extension InsertTitleViewController {
+    static let notificationName = Notification.Name("insertedfieldNotification")
 }
