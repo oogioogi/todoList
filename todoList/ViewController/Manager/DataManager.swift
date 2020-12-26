@@ -46,6 +46,7 @@ class DataManager {
         let newData = CoreData(context: mainContenxt)
         newData.title = title
         newData.photo = photo
+        newData.sortIndex = Date()
         toDoList.insert(newData, at: 0)
         saveContext()
     }

@@ -22,7 +22,7 @@ class InsertTitleViewController: UIViewController {
     
     @IBAction func insertText(_ sender: Any) {
         let inserted: [AnyHashable: Any] = ["inserted" : textField.text!]
-        NotificationCenter.default.post(name: InsertTitleViewController.notificationName, object: nil, userInfo: inserted)
+        NotificationCenter.default.post(name: Notifications.insertedfieldNotification, object: nil, userInfo: inserted)
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -38,6 +38,6 @@ class InsertTitleViewController: UIViewController {
 
 }
 
-extension InsertTitleViewController {
-    static let notificationName = Notification.Name("insertedfieldNotification")
-}
+//extension InsertTitleViewController {
+//    static let notificationName = Notification.Name("insertedfieldNotification")
+//}

@@ -21,9 +21,8 @@ class NewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        token = NotificationCenter.default.addObserver(forName: InsertTitleViewController.notificationName, object: nil, queue: OperationQueue.main, using: { [self] (noti) in
+        token = NotificationCenter.default.addObserver(forName: Notifications.insertedfieldNotification, object: nil, queue: OperationQueue.main, using: { [self] (noti) in
             guard let inserted = noti.userInfo?["inserted"] as? String else {return}
-            print("Inserted ===== \(inserted)")
             self.defalutTitle = inserted
             self.newTableView.reloadData()
         })
@@ -32,7 +31,7 @@ class NewViewController: UIViewController {
     
     deinit {
         if let Token = self.token {
-            NotificationCenter.default.removeObserver(self, name: InsertTitleViewController.notificationName, object: nil)
+            NotificationCenter.default.removeObserver(self, name: Notifications.insertedfieldNotification, object: nil)
         }
     }
     
@@ -81,7 +80,29 @@ class NewViewController: UIViewController {
         }
     }
 
+    @IBAction func pressCancel(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func pressSave(_ sender: UIBarButtonItem) {
+        // 나중에 다시 클래스로 변수 집합을 만들어 본다
+        // 투두 리스트가 닐이 되면 신규 아니면 편집
+        if let edit = todoList {
+            edit.photo = self.defalutPhoto
+            edit.title = self.defalutTitle
+            DataManager.shared.saveContext()
+            NotificationCenter.default.post(name: Notifications.saveEditCore, object: nil, userInfo: nil)
+        }else {
+            guard let currentTitle = self.defalutTitle else {return}
+            guard let currentPhoto = self.defalutPhoto else {return}
+            DataManager.shared.AddNewCoreData(Title: currentTitle, Photo: currentPhoto)
+            NotificationCenter.default.post(name: Notifications.saveNewCore, object: nil, userInfo: nil)
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
 }
+
+
 
 // MARK: - DataSource
 extension NewViewController: UITableViewDataSource  {

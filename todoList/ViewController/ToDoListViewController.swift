@@ -10,6 +10,7 @@ import UIKit
 class ToDoListViewController: UIViewController {
 
     @IBOutlet weak var todoTableView: UITableView!
+    var token: NSObjectProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,9 +18,18 @@ class ToDoListViewController: UIViewController {
         // 델리게이트 데이트 소스 연결  [ 셀프: ToDoListViewController ]
         todoTableView.dataSource = self
         todoTableView.delegate = self
-        // Do any additional setup after loading the view.
-        //guard let image = UIImage(named: "running-man")?.pngData() else {return}
-        //demo(Title: "Main Title", Photo: image)
+
+        token = NotificationCenter.default.addObserver(forName: Notifications.saveNewCore, object: nil, queue: OperationQueue.main, using: { (noti) in
+            self.todoTableView.reloadData()
+        })
+        
+    }
+    
+    deinit {
+        if let token = self.token {
+            NotificationCenter.default.removeObserver(self, name: Notifications.saveNewCore, object: nil)
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

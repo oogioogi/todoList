@@ -16,6 +16,7 @@
 		8625B83A258F06C400F87083 /* todoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8625B838258F06C400F87083 /* todoList.xcdatamodeld */; };
 		8625B83C258F06C400F87083 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8625B83B258F06C400F87083 /* Assets.xcassets */; };
 		8625B83F258F06C400F87083 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8625B83D258F06C400F87083 /* LaunchScreen.storyboard */; };
+		86261CF72597FDD300569A0E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86261CF62597FDD300569A0E /* Notifications.swift */; };
 		86B4A320258F10E000F746AF /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B4A31F258F10E000F746AF /* NewViewController.swift */; };
 		86B4A323258F10F900F746AF /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B4A322258F10F900F746AF /* EditViewController.swift */; };
 		86B4A326258F111100F746AF /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B4A325258F111100F746AF /* ToDoListViewController.swift */; };
@@ -37,6 +38,7 @@
 		8625B83B258F06C400F87083 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8625B83E258F06C400F87083 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8625B840258F06C400F87083 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86261CF62597FDD300569A0E /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		86B4A31F258F10E000F746AF /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
 		86B4A322258F10F900F746AF /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		86B4A325258F111100F746AF /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				86B4A32B258F118000F746AF /* DataManager.swift */,
+				86261CF62597FDD300569A0E /* Notifications.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				8625B830258F06C400F87083 /* AppDelegate.swift in Sources */,
 				8625B832258F06C400F87083 /* SceneDelegate.swift in Sources */,
 				86B4A323258F10F900F746AF /* EditViewController.swift in Sources */,
+				86261CF72597FDD300569A0E /* Notifications.swift in Sources */,
 				8624FE9A2596231E00313BE6 /* InsertTitleViewController.swift in Sources */,
 				86B4A34E258F5DE600F746AF /* CoreData+CoreDataProperties.swift in Sources */,
 				86B4A32C258F118000F746AF /* DataManager.swift in Sources */,

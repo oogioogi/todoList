@@ -10,12 +10,23 @@ import UIKit
 class EditViewController: UIViewController {
 
     var todoList: CoreData?
-    
+    @IBOutlet weak var editTableView: UITableView!
+    var token: NSObjectProtocol!
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.locale = Locale(identifier: "KO-KR")
+        return formatter
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.title = dateFormatter.string(for: todoList?.sortIndex)
+        token = NotificationCenter.default.addObserver(forName: Notifications.saveEditCore, object: nil, queue: OperationQueue.main, using: { (noti) in
+            self.editTableView.reloadData()
+        })
     }
     
     @IBAction func pressDelete(_ sender: UIBarButtonItem) {
@@ -23,7 +34,12 @@ class EditViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
+    deinit {
+        if let token = self.token {
+            NotificationCenter.default.removeObserver(self, name: Notifications.saveEditCore, object: nil)
+        }
+        
+    }
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
